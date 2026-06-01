@@ -1,16 +1,47 @@
 import { motion } from 'framer-motion'
 
 const CLASSES = [
-  { name: 'CrossFit', level: 'All Levels', duration: '60 min', schedule: 'Mon, Wed, Fri' },
-  { name: 'Boxing', level: 'Beginner / Intermediate', duration: '45 min', schedule: 'Tue, Thu' },
-  { name: 'Power Yoga', level: 'All Levels', duration: '60 min', schedule: 'Mon, Wed, Sat' },
-  { name: 'Cycling', level: 'All Levels', duration: '45 min', schedule: 'Daily' },
-  { name: 'HIIT', level: 'Intermediate', duration: '30 min', schedule: 'Mon – Sat' },
+  {
+    name: 'CrossFit',
+    level: 'All Levels',
+    duration: '60 min',
+    schedule: 'Mon, Wed, Fri',
+    image: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Boxing',
+    level: 'Beginner / Intermediate',
+    duration: '45 min',
+    schedule: 'Tue, Thu',
+    image: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Power Yoga',
+    level: 'All Levels',
+    duration: '60 min',
+    schedule: 'Mon, Wed, Sat',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'Cycling',
+    level: 'All Levels',
+    duration: '45 min',
+    schedule: 'Daily',
+    image: 'https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?auto=format&fit=crop&w=800&q=80',
+  },
+  {
+    name: 'HIIT',
+    level: 'Intermediate',
+    duration: '30 min',
+    schedule: 'Mon – Sat',
+    image: 'https://images.unsplash.com/photo-1517963879433-6ad2b056d712?auto=format&fit=crop&w=800&q=80',
+  },
   {
     name: 'Strength & Conditioning',
     level: 'Intermediate / Advanced',
     duration: '75 min',
     schedule: 'Tue, Thu, Sat',
+    image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80',
   },
 ]
 
@@ -45,7 +76,7 @@ export default function Classes() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {CLASSES.map((cls, i) => (
             <motion.div
               key={cls.name}
@@ -53,18 +84,30 @@ export default function Classes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="bg-[#141414] border border-white/5 rounded-2xl p-6 hover:border-[#E63946]/30 transition-all duration-300 hover:-translate-y-1 cursor-default"
+              className="group bg-[#141414] border border-white/5 rounded-2xl overflow-hidden hover:border-[#E63946]/30 transition-all duration-300 hover:-translate-y-1"
             >
-              <div className="flex items-start justify-between mb-3">
-                <h3 className="text-lg font-bold">{cls.name}</h3>
-                <span className="text-xs text-[#E63946] bg-[#E63946]/10 px-2.5 py-1 rounded-full shrink-0">
+              {/* Image */}
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src={cls.image}
+                  alt={cls.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
+                <span className="absolute top-3 right-3 text-xs text-white bg-[#E63946] px-2.5 py-1 rounded-full font-semibold">
                   {cls.duration}
                 </span>
               </div>
-              <p className="text-gray-500 text-sm mb-4">{cls.level}</p>
-              <div className="flex items-center gap-2 text-gray-600 text-xs">
-                <CalendarIcon />
-                <span>{cls.schedule}</span>
+
+              {/* Content */}
+              <div className="p-5">
+                <h3 className="text-lg font-bold mb-1">{cls.name}</h3>
+                <p className="text-gray-500 text-sm mb-3">{cls.level}</p>
+                <div className="flex items-center gap-2 text-gray-600 text-xs">
+                  <CalendarIcon />
+                  <span>{cls.schedule}</span>
+                </div>
               </div>
             </motion.div>
           ))}

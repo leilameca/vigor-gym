@@ -2,6 +2,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Features from './components/Features'
 import Classes from './components/Classes'
+import Gallery from './components/Gallery'
+import VideoSection from './components/VideoSection'
 import Membership from './components/Membership'
 import MapSection from './components/MapSection'
 import Contact from './components/Contact'
@@ -15,6 +17,8 @@ export default function App() {
         <Hero />
         <Features />
         <Classes />
+        <Gallery />
+        <VideoSection />
         <Membership />
         <MapSection />
         <Contact />
