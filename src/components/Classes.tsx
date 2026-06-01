@@ -14,6 +14,14 @@ const CLASSES = [
   },
 ]
 
+function CalendarIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3.5 h-3.5">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+    </svg>
+  )
+}
+
 export default function Classes() {
   return (
     <section id="classes" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#0f0f0f]">
@@ -32,7 +40,7 @@ export default function Classes() {
             Find Your <span className="text-[#E63946]">Class</span>
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
-            From high‑intensity training to mindful movement — we have a class for every fitness
+            From high-intensity training to mindful movement — we have a class for every fitness
             level and goal.
           </p>
         </motion.div>
@@ -55,7 +63,7 @@ export default function Classes() {
               </div>
               <p className="text-gray-500 text-sm mb-4">{cls.level}</p>
               <div className="flex items-center gap-2 text-gray-600 text-xs">
-                <span>📅</span>
+                <CalendarIcon />
                 <span>{cls.schedule}</span>
               </div>
             </motion.div>

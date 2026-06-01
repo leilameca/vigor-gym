@@ -60,7 +60,11 @@ export default function Contact() {
         >
           {status === 'success' ? (
             <div className="text-center py-8">
-              <div className="text-5xl mb-4">✅</div>
+              <div className="w-16 h-16 rounded-full bg-[#E63946]/10 flex items-center justify-center mx-auto mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8 text-[#E63946]">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+              </div>
               <h3 className="text-xl font-bold mb-2">Message Sent!</h3>
               <p className="text-gray-400 text-sm mb-6">We'll get back to you within 24 hours.</p>
               <button
@@ -92,7 +96,7 @@ export default function Contact() {
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="+1 (555) 000‑0000"
+                    placeholder="+1 (555) 000-0000"
                     className="w-full bg-[#1C1C1E] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#E63946] transition-colors"
                   />
                 </div>
@@ -119,7 +123,7 @@ export default function Contact() {
                   name="message"
                   required
                   rows={4}
-                  placeholder="Tell us about your fitness goals…"
+                  placeholder="Tell us about your fitness goals..."
                   className="w-full bg-[#1C1C1E] border border-white/10 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#E63946] transition-colors resize-none"
                 />
               </div>
@@ -136,7 +140,7 @@ export default function Contact() {
                   disabled={status === 'sending'}
                   className="flex-1 py-3 bg-[#E63946] text-white font-bold rounded-xl hover:bg-[#c1121f] transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm"
                 >
-                  {status === 'sending' ? 'Sending…' : 'Send Message'}
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
                 </button>
 
                 <a
